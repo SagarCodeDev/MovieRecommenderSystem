@@ -1,5 +1,5 @@
 # MovieRecommenderSystem
-Used Django framework to build a movie recommender system. Different users can Login or Register(if they dont't have the account).\n
+Used Django framework to build a movie recommender system. Different users can Login or Register(if they dont't have the account).
 The profile page will display the details of all the movies which the user have seen.
 The recommendation page will recommend the movie based on the given movie mentioned in the database.
 After selecting a movie it will display a list of 10 movies and the user can select one of the movie to add in the database.
