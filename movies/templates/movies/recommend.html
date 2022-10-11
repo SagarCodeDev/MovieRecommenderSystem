@@ -1,0 +1,34 @@
+{% extends 'movies/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="content-section">
+    {% if request.method == 'GET' %}
+        <form method="POST">
+            {% csrf_token %} 
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">
+                    Type the movie title
+                </legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">
+                    Recommend
+                </button>
+            </div>
+        </form>
+    {% elif request.method == 'POST' %}
+        <h1>Which one to watch?</h1>
+        <form method="post">
+            {% csrf_token %} 
+            {% for movie in movie %}
+            <div class="col-select">
+                <input type="radio" name="choice" value="{{ movie }}" />
+                <label for="choice{{ forloop.counter }}">{{ movie}}</label><br />
+            </div>
+            {% endfor %}
+            <input type="submit" value="Submit" />
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'movies/base.html' %}
+{% block content %}
+<h1>Movies Watched By {{user.username}}</h1>
+{% for p in profile%}
+    {% if p.userp.username == user.username%}
+        {% for movie in p.title.all %}
+            <article class="media content-section">
+                <div class="media-body">
+                <div class="article-metadata">
+                    <a class="mr-2" href="#">{{ movie.cast1}}</a>,
+                    <a class="mr-2" href="#">{{ movie.cast2}}</a>,
+                    <a class="mr-2" href="#">{{ movie.cast3}}</a>
+                    <small class="text-muted">{{ movie.director}}</small>
+                </div>
+                <h2><a class="article-title" href="#">{{ movie.title}}</a></h2>
+                <p class="article-content">{{ movie.description}}</p>
+                </div>
+            </article>
+        {% endfor %}
+    {% endif %}
+{% endfor %}
+{% endblock %}
